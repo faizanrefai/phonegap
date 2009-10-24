@@ -64,6 +64,7 @@
     NSNumber *useLocation          = [settings objectForKey:@"UseLocation"];
     NSNumber *useAccelerometer     = [settings objectForKey:@"EnableAcceleration"];
     NSNumber *autoRotate           = [settings objectForKey:@"AutoRotate"];
+    NSNumber *shakeToEdit          = [settings objectForKey:@"ShakeToEdit"];
     NSString *startOrientation     = [settings objectForKey:@"StartOrientation"];
     NSString *rotateOrientation    = [settings objectForKey:@"RotateOrientation"];
     NSString *topActivityIndicator = [settings objectForKey:@"TopActivityIndicator"];
@@ -107,6 +108,12 @@
     imageView.tag = 1;
 	[window addSubview:imageView];
 	[imageView release];
+	
+    /*
+     * Shake to edit (undo/redo) - Set to true if you want to allow users to undo/redo text changes by shaking phone
+     * Value should be BOOL (YES|NO)
+     */
+    [application setApplicationSupportsShakeToEdit:[shakeToEdit boolValue]];
 	
     /*
      * autoRotate - If you want your phone to automatically rotate its display when the phone is rotated
